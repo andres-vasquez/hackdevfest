@@ -5,7 +5,7 @@ var app = angular.module("HackatonDevFest", ["firebase","ngFileUpload","ui.boots
 
 app.controller("AppCtrl", function ($scope) {
     var $ctrl = this;
-    $scope.active=2;
+    $scope.active=1;
 });
 
 app.controller("SpeakerCtrl", function($scope, $firebaseObject, $firebaseArray, services) {
