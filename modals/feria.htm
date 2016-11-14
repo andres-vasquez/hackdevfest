@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-lg- col-lg-offset-3">
+        <div id="modalFeria" class="panel panel-default" role="dialog" ng-controller="FeriaCtrl">
+            <form role="form" ng-submit="save();" enctype="multipart/form-data">
+                <div class="panel-body" >
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input class="form-control" type="text" ng-model="form.Nombre" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Empresa</label>
+                        <input class="form-control" type="text" ng-model="form.Empresa" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Integrantes</label>
+                        <input class="form-control" type="text" ng-model="form.Integrantes" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea class="form-control" type="text" ng-model="form.Descripcion" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Tam Emp</label>
+                        <input class="form-control" type="text" ng-model="form.TamEmp" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Tam Titulo</label>
+                        <input class="form-control" type="text" ng-model="form.TamTitulo" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Imagen</label>
+                        <div class="btn btn-info" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                             ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                             ngf-resize="{width: 100, height: 100}">Adjuntar</div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-success" type="submit">{{(form.isEditando)?'Editar':'Guardar'}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
