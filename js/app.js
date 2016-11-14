@@ -5,7 +5,7 @@ var app = angular.module("HackatonDevFest", ["firebase","ngFileUpload","ui.boots
 
 app.controller("AppCtrl", function ($scope) {
     var $ctrl = this;
-    $scope.active=6;
+    $scope.active=2;
 });
 
 app.controller("SpeakerCtrl", function($scope, $firebaseObject, $firebaseArray, services) {
@@ -54,7 +54,10 @@ app.controller("SpeakerCtrl", function($scope, $firebaseObject, $firebaseArray, 
         alert("Editar");
     };
     $scope.delete=function(speaker){
-        alert("Eliminar");
+        if(confirm("Está seguro de eliminar el registro?")){
+            $scope.data[speaker.Nombre]=null;
+            $scope.data.$save();
+        }
     };
     $scope.deleteConfirm=function(speaker){
         alert("Confirm");
@@ -116,7 +119,9 @@ app.controller("TalksCtrl", function($scope, $firebaseObject, $firebaseArray, se
         alert("Editar");
     };
     $scope.delete=function(talk){
-        alert("Eliminar");
+        if(confirm("Está seguro de eliminar el registro?")){
+            $scope.talks.$remove(talk);
+        }
     };
     $scope.deleteConfirm=function(talk){
         alert("Confirm");
@@ -184,7 +189,9 @@ app.controller("CodelabsCtrl", function($scope, $firebaseObject, $firebaseArray,
         alert("Editar");
     };
     $scope.delete=function(codelab){
-        alert("Eliminar");
+        if(confirm("Está seguro de eliminar el registro?")){
+            $scope.codelabs.$remove(codelab);
+        }
     };
     $scope.deleteConfirm=function(codelab){
         alert("Confirm");
@@ -247,7 +254,9 @@ app.controller("FeriaCtrl", function($scope, $firebaseObject, $firebaseArray, se
         alert("Editar");
     };
     $scope.delete=function(feria){
-        alert("Eliminar");
+        if(confirm("Está seguro de eliminar el registro?")){
+            $scope.ferias.$remove(feria);
+        }
     };
     $scope.deleteConfirm=function(feria){
         alert("Confirm");
@@ -295,13 +304,15 @@ app.controller("DevelopersCtrl", function($scope, $firebaseObject, $firebaseArra
             alert("Adjunte la imagen");
         }
     };
-    $scope.edit=function(feria){
+    $scope.edit=function(developer){
         alert("Editar");
     };
-    $scope.delete=function(feria){
-        alert("Eliminar");
+    $scope.delete=function(developer){
+        if(confirm("Está seguro de eliminar el registro?")){
+            $scope.developers.$remove(developer);
+        }
     };
-    $scope.deleteConfirm=function(feria){
+    $scope.deleteConfirm=function(developer){
         alert("Confirm");
     };
 
@@ -349,7 +360,9 @@ app.controller("SponsorsCtrl", function($scope, $firebaseObject, $firebaseArray,
         alert("Editar");
     };
     $scope.delete=function(sponsor){
-        alert("Eliminar");
+        if(confirm("Está seguro de eliminar el registro?")){
+            $scope.sponsors.$remove(sponsor);
+        }
     };
     $scope.deleteConfirm=function(sponsor){
         alert("Confirm");
