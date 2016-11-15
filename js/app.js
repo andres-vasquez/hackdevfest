@@ -3,8 +3,7 @@
  */
 var app = angular.module("HackatonDevFest", ["firebase","ngFileUpload","ui.bootstrap"]);
 
-app.controller("AppCtrl", function ($scope) {
-    var $ctrl = this;
+app.controller("AppCtrl", function ($scope, $firebaseAuth) {
     $scope.active=1;
 });
 
@@ -173,7 +172,7 @@ app.controller("CodelabsCtrl", function($scope, $firebaseObject, $firebaseArray,
             Imagen:'',
             Speaker:'',
             TamCodelab:'',
-            TamTalk:'',
+            TamSpeaker:'',
             Timestamp:''
         };
         $scope.panelVisible=!$scope.panelVisible;
@@ -370,6 +369,7 @@ app.controller("SponsorsCtrl", function($scope, $firebaseObject, $firebaseArray,
 
     // upload on file select or drop
     $scope.upload = function (file) {
+        console.log(file);
         services.uploadPhoto(imagesRef,file).then(function(downloadUrl){
                 console.log(downloadUrl);
                 $scope.form.Logo=downloadUrl;
@@ -398,7 +398,7 @@ app.factory("services", function($q){
             var defered = $q.defer();
 
             var metadata = {
-                contentType: 'image/jpeg'
+                contentType: 'image/png'
             };
 
             var uploadTask = storageRef.child(ref+'/' + file.name).put(file, metadata);
