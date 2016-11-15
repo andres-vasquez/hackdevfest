@@ -23,7 +23,8 @@ app.controller("SpeakerCtrl", function($scope, $firebaseObject, $firebaseArray, 
                 Imagen:value.Imagen,
                 Face:value.Face,
                 Google:value.Google,
-                Github:value.Github
+                Github:value.Github,
+                TamSpeaker:value.TamSpeaker,
             };
             $scope.speakers.push(speaker);
         });
@@ -38,7 +39,8 @@ app.controller("SpeakerCtrl", function($scope, $firebaseObject, $firebaseArray, 
             Face:'',
             Google:'',
             Github:'',
-            Imagen:''
+            Imagen:'',
+            TamSpeaker:''
         };
         $scope.panelVisible=!$scope.panelVisible;
     };
